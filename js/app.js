@@ -29,7 +29,7 @@ const sections = document.querySelectorAll('section');
 //global variable for the navigation 
 const navigation = document.getElementById('navbar__list');
 
-
+//random comment
 
 /**
  * End Global Variables
@@ -104,20 +104,7 @@ navBar();
 // everytime page scrolls a function is run to see add 'your-active-class' to appropriate class
 window.addEventListener('scroll',toggleActive);
 
-/* const scrolling = () => {
 
-    const links = document.querySelectorAll('.navbar__menu a');
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            for(i = 0 ; i<sections ; i++){
-                sections[i].addEventListener("click",sectionScroll(link));
-            }
-        });
-    });
-
-};
-
-scrolling(); */
 
 /**
  * End Main Functions
