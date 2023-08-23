@@ -55,22 +55,19 @@ function createNavBar() {
         div.className = 'menu__link';
         const listItem = document.createElement('li');
         listItem.appendChild(div);
+        listItem.addEventListener('click', function(event) {
+            event.preventDefault();
+            const thing = document.getElementById(secID);
+            thing.scrollIntoView({
+                behavior: "smooth"
+            })
+        })
         navigation.appendChild(listItem);
 
     }
     // Text of the sections list gets appended to navigation's html
     // navigation.innerHTML = navList;
-    const listItems = document.getElementsByTagName('li');
-    for (item of listItems) {
-        item.addEventListener('click', function(event) {
-            event.preventDefault();
-            const thing = document.getElementById('section1');
-            thing.scrollIntoView({
-                behavior: "smooth"
-            })
-    })
 
-} 
 
 }
 
