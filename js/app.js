@@ -40,7 +40,7 @@ const navigation = document.getElementById('navbar__list');
 
 
 // Nav bar gets built
-function navBar() {
+function createNavBar() {
     // navBar variable created as an empty string that will get filled
     let navList = '';
     // Every section gets looped over and its atributes get put into a list item
@@ -49,26 +49,34 @@ function navBar() {
         const secDatasetNav = section.dataset.nav;
         //Adding each section as a list in text form
 
-        const navItem = `<li><a class="menu__link" href="#${secID}">${secDatasetNav}</a></li>`;
-        navList += navItem;
+        
+        const div = document.createElement('div');
+        div.innerHTML= secDatasetNav;
+        div.className = 'menu__link';
+        const listItem = document.createElement('li');
+        listItem.appendChild(div);
+        navigation.appendChild(listItem);
 
     }
     // Text of the sections list gets appended to navigation's html
-    navigation.innerHTML = navList;
-
-}
-
-const listItems = navigation.getElementsByTagName('li');
-for (item of listItems) {
-    item.addEventListener('click', function(event) {
-        event.preventDefault();
-        item.scrollIntoView({
-            behavior: "smooth"
-        })
+    // navigation.innerHTML = navList;
+    const listItems = document.getElementsByTagName('li');
+    for (item of listItems) {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            const thing = document.getElementById('section1');
+            thing.scrollIntoView({
+                behavior: "smooth"
+            })
     })
 
+} 
+
 }
 
+
+// const navItem = `<li><div class="menu__link">${secDatasetNav}</div></li>`;
+//`<li><a class="menu__link" href="#${secID}">${secDatasetNav}</a></li>`;
 
 
 // Gives the section being viewed a different appearance and adds 'your-active-class' in browser's inspect menu
@@ -99,7 +107,9 @@ function toggleActive() {
 */
 
 // triggers a function that builds the nav bar
-navBar();
+createNavBar();
+
+
 
 // everytime page scrolls a function is run to see add 'your-active-class' to appropriate class
 window.addEventListener('scroll',toggleActive);
