@@ -41,13 +41,10 @@ const navigation = document.getElementById('navbar__list');
 
 // Nav bar gets built
 function createNavBar() {
-    // navBar variable created as an empty string that will get filled
-    let navList = '';
     // Every section gets looped over and its atributes get put into a list item
-    for (section of sections) {
+    for (let section of sections) {
         const secID = section.id;
         const secDatasetNav = section.dataset.nav;
-        //Adding each section as a list in text form
 
         
         const div = document.createElement('div');
@@ -72,13 +69,10 @@ function createNavBar() {
 }
 
 
-// const navItem = `<li><div class="menu__link">${secDatasetNav}</div></li>`;
-//`<li><a class="menu__link" href="#${secID}">${secDatasetNav}</a></li>`;
-
 
 // Gives the section being viewed a different appearance and adds 'your-active-class' in browser's inspect menu
 function toggleActive() {
-    for (section of sections) {
+    for (let section of sections) {
         // This function saves the size of a section element in relation to the viewport into a variable
         const secBound = section.getBoundingClientRect();
         if (secBound.top <= 300 && secBound.bottom >= 340) {
@@ -86,12 +80,16 @@ function toggleActive() {
                 section.classList.add('your-active-class');
                 //Background color changed signifing that it is the active class
                 section.style.cssText = "background-color: blue;";
+                // navButton = navigation.getElementById(section.id);
+                // navButton.style.cssText = "background-color: green;";
         } 
         else {
             // If the section is no longer in the viewport 'your-active-class' gets removed ans background goes back to default 
             section.classList.remove('your-active-class');
             // Background gets set back to default 
             section.style.cssText = "linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);";
+            // navButton = navigation.getElementById(section.id);
+            // navButton.style.cssText = "background: rgb(212, 87, 87)";
         }
 
     }
