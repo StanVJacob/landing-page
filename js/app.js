@@ -51,6 +51,7 @@ function createNavBar() {
         div.innerHTML= secDatasetNav;
         div.className = 'menu__link';
         const listItem = document.createElement('li');
+        listItem.id = `navbar-${secID}`;
         listItem.appendChild(div);
         listItem.addEventListener('click', function(event) {
             event.preventDefault();
@@ -80,16 +81,16 @@ function toggleActive() {
                 section.classList.add('your-active-class');
                 //Background color changed signifing that it is the active class
                 section.style.cssText = "background-color: blue;";
-                // navButton = navigation.getElementById(section.id);
-                // navButton.style.cssText = "background-color: green;";
+                navButton = document.getElementById(`navbar-${section.id}`);
+                navButton.style.cssText = "background-color: green;";
         } 
         else {
             // If the section is no longer in the viewport 'your-active-class' gets removed ans background goes back to default 
             section.classList.remove('your-active-class');
             // Background gets set back to default 
             section.style.cssText = "linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);";
-            // navButton = navigation.getElementById(section.id);
-            // navButton.style.cssText = "background: rgb(212, 87, 87)";
+            navButton = document.getElementById(`navbar-${section.id}`);
+            navButton.style.cssText = "background: rgb(212, 87, 87)";
         }
 
     }
